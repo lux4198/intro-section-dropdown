@@ -28,11 +28,16 @@ function App() {
       <main>
         <div class = "hero-section-wrap">
           <div class = 'hero-image-wrap'>
-            <img src= {heroImageMobile} alt = 'hero-image' />
+            <img srcset={`${heroImageMobile} 564w,
+                        ${heroImagedesktop} 1280w`}
+                        sizes="(max-width: 900px) 564px,
+                        1280px"
+            src= {heroImageMobile} alt = 'hero-image' 
+            class = 'hero-image'/>
           </div>
           <div class = "hero-text-wrap">
             <div class = 'text-title'>
-              Make remote Work
+              Make <br class = 'break'/> remote Work
             </div>
             <div class = 'text-subtitle'>
               <p>Get your team in sync, no matter your location. Streamline processes, create team retuals, and watch productivity soar.</p>
