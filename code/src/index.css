@@ -13,8 +13,8 @@
   --font-size-par: 18px; 
 
   font-family: var(--font-primary);
+  background-color: var(--col-almostwhite);
 }
-
 
 p {
   font-size: var(--font-size-par);
