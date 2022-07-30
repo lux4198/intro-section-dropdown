@@ -102,12 +102,11 @@ function App() {
       <main>
         <div class = "hero-section-wrap">
           <div class = 'hero-image-wrap'>
-            <img srcset={`${heroImageMobile} 564w,
-                        ${heroImagedesktop} 1280w`}
-                        sizes="(max-width: 900px) 564px,
-                        1280px"
-            src= {heroImageMobile} alt = 'hero-image' 
-            class = 'hero-image'/>
+            <picture>
+              <source media='(min-width: 900px)' srcSet= {`${heroImagedesktop}`}/>
+              <source media='(max-width: 900px)' srcSet= {`${heroImageMobile}`}/>
+              <img src= {`${heroImageMobile}`} alt = 'hero-image'/>
+            </picture>
           </div>
           <div class = "hero-text-wrap">
             <div class = 'text-title'>
