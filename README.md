@@ -16,8 +16,6 @@ Users should be able to:
 - View the optimal layout for the content depending on their device's screen size
 - See hover states for all interactive elements on the page
 
-![](./Screenshot.png)
-
 ### Links
 
 - Solution URL: [Solution](https://www.frontendmentor.io/challenges/intro-section-with-dropdown-navigation-ryaPetHE5/hub/responsive-intro-section-using-vite-I1nuT9nwBL)
