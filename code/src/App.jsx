@@ -1,6 +1,7 @@
 import './App.css'
 import logo from '../src/images/logo.svg'
 import iconMenu from '../src/images/icon-menu.svg'
+import iconCloseMenu from '../src/images/icon-close-menu.svg'
 import heroImageMobile from '../src/images/image-hero-mobile.png'
 import heroImagedesktop from '../src/images/image-hero-desktop.png'
 import clientDatabiz from '../src/images/client-databiz.svg'
@@ -11,6 +12,7 @@ import iconTodo from '../src/images/icon-todo.svg'
 import iconCalendar from '../src/images/icon-calendar.svg'
 import iconReminders from '../src/images/icon-reminders.svg'
 import iconPlanning from '../src/images/icon-planning.svg'
+import { useState } from 'react'
 
 // import arrowDown from '../src/images/icon-arrow-down.svg'
 // import arrowUp from '../src/images/icon-arrow-up.svg'
@@ -36,13 +38,9 @@ const arrowUp = () => {
 
 function App() {
 
-  const checkHover = (el) => {
-    return(
-      <div>
-        {el.matches(':hover')? arrowDown():arrowUp()}
-      </div>
-    )
-  }
+  const [menuCollapse, setMenuCollapse] = useState(false)
+
+  const [itemCollapse, setItemCollapse] = useState(Array(2).fill(false))
 
   return (
     <div className="App">
@@ -71,7 +69,7 @@ function App() {
                 <div class = 'nav-item'>
                   <p>Company</p>
                   {arrowDown()}
-                  <div class = 'nav-item-content nav-item-content-no-icons'>
+                  <div class = 'nav-item-content  nav-item-content-no-icons'>
                     <p>History</p>
                     <p>Our Team</p>
                     <p>Blog</p>
@@ -93,9 +91,58 @@ function App() {
                 </div>
               </div>
             </div>
-            <div class = 'menu-icon'>
-              <img src={iconMenu} alt = 'icon-menu'/>
+            <div class = 'menu-icon' onClick={() => setMenuCollapse(!menuCollapse)}>
+              {menuCollapse? <img src = {iconCloseMenu} alt = 'icon-close-menu'/>
+                : <img src={iconMenu} alt = 'icon-menu'/>}
             </div>
+            <div class = 'nav-menu-mobile' style = 
+                    {{'display': menuCollapse? 'flex' : 'none'}}>
+                <div class = 'nav-items-wrap'>
+                  <div class = 'nav-item-mobile' onClick = {() => setItemCollapse([!itemCollapse[0], itemCollapse[1]])}>
+                    <div class = 'nav-item-header' >
+                      <p>Features</p>
+                      {arrowDown()}
+                    </div>
+                    <div class = 'nav-item-content-mobile' 
+                        style = {{'display' : itemCollapse[0]? 'grid' : 'none'}}>
+                      <img src = {iconTodo} alt = 'icon-todo-list'/>
+                      <p>Todo List</p>
+                      <img src = {iconCalendar} alt = 'icon-calendar'/>
+                      <p>Calendar</p>
+                      <img src = {iconReminders} alt = 'icon-reminders'/>
+                      <p>Reminders</p>
+                      <img src = {iconPlanning} alt = 'icon-planning'/>
+                      <p>Planning</p>
+                    </div>
+                  </div>
+                  <div class = 'nav-item-mobile' onClick = {() => setItemCollapse([itemCollapse[0], !itemCollapse[1]])}>
+                    <div class = 'nav-item-header'>
+                      <p>Company</p>
+                      {arrowDown()}
+                    </div>
+                    <div class = 'nav-item-content-no-icons'
+                        style = {{'display' : itemCollapse[1]? 'grid' : 'none'}}>
+                      <p>History</p>
+                      <p>Our Team</p>
+                      <p>Blog</p>
+                    </div>
+                  </div>
+                  <div class = 'nav-item-mobile'>
+                    <p>Careers</p>
+                  </div>
+                  <div class = 'nav-item-mobile'>
+                    <p>About</p>
+                  </div>
+                  <div class = 'nav-btn-wrap'>
+                    <div class = 'nav-btn nav-btn-login'>
+                      <p>Login</p>
+                    </div>
+                    <div class = 'nav-btn nav-btn-register'>
+                      <p>Register</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
           </div>
         </div>
       </nav>
