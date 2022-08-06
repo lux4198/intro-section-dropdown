@@ -113,7 +113,9 @@ function App() {
                 </div>
               </div>
             </div>
-            <div class = 'menu-icon' onClick={() => setMenuCollapse(!menuCollapse)}>
+            <div class = 'menu-icon' 
+              style = {{'position' : menuCollapse? 'fixed' : 'absolute'}}
+              onClick={() => setMenuCollapse(!menuCollapse)}>
               {menuCollapse? iconCloseMenu() : iconMenu()}
             </div>
             <div class = {menuCollapse? 'nav-menu-mobile nav-menu-mobile-fade-in' :
