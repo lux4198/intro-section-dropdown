@@ -65,7 +65,7 @@ function App() {
   const [itemCollapse, setItemCollapse] = useState(Array(2).fill(false))
 
   return (
-    <div className="App" class = {menuCollapse? 'mobile-overlay' : 'none'}>
+    <div id="App" class = {menuCollapse? 'app mobile-overlay' : 'app'}>
       <nav>
         <div class = 'nav-wrap'>
           <div class = 'logo'>
