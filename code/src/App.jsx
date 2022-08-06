@@ -65,7 +65,7 @@ function App() {
   const [itemCollapse, setItemCollapse] = useState(Array(2).fill(false))
 
   return (
-    <div className="App" class = {menuCollapse? 'overlay' : 'none'}>
+    <div className="App" class = {menuCollapse? 'mobile-overlay' : 'none'}>
       <nav>
         <div class = 'nav-wrap'>
           <div class = 'logo'>
@@ -116,8 +116,9 @@ function App() {
             <div class = 'menu-icon' onClick={() => setMenuCollapse(!menuCollapse)}>
               {menuCollapse? iconCloseMenu() : iconMenu()}
             </div>
-            <div class = 'nav-menu-mobile' style = 
-                    {{'display': menuCollapse? 'flex' : 'none'}}>
+            <div class = {menuCollapse? 'nav-menu-mobile nav-menu-mobile-fade-in' :
+                                        'nav-menu-mobile'} /* style = 
+                    {{'display': menuCollapse? 'flex' : 'none'}} */>
                 <div class = 'nav-items-wrap'>
                   <div class = 'nav-item-mobile' >
                     <div class = 'nav-item-header' onClick = {() => setItemCollapse([!itemCollapse[0], itemCollapse[1]])}>
