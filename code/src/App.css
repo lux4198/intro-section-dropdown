@@ -108,6 +108,14 @@ body{
     align-items: center;
 }
 
+.nav-item-header::after{
+    /* border: 2px solid black; */
+    position: absolute;
+    content: "";
+    width: 200px;
+    height: 40px;
+}
+
 .nav-item-content{
     display: none;
     align-self: baseline;
