@@ -98,10 +98,10 @@ function App() {
             <div class = 'nav-menu-mobile' style = 
                     {{'display': menuCollapse? 'flex' : 'none'}}>
                 <div class = 'nav-items-wrap'>
-                  <div class = 'nav-item-mobile' onClick = {() => setItemCollapse([!itemCollapse[0], itemCollapse[1]])}>
-                    <div class = 'nav-item-header' >
+                  <div class = 'nav-item-mobile' >
+                    <div class = 'nav-item-header' onClick = {() => setItemCollapse([!itemCollapse[0], itemCollapse[1]])}>
                       <p>Features</p>
-                      {arrowDown()}
+                      {itemCollapse[0]? arrowUp() : arrowDown()}
                     </div>
                     <div class = 'nav-item-content-mobile' 
                         style = {{'display' : itemCollapse[0]? 'grid' : 'none'}}>
@@ -115,10 +115,10 @@ function App() {
                       <p>Planning</p>
                     </div>
                   </div>
-                  <div class = 'nav-item-mobile' onClick = {() => setItemCollapse([itemCollapse[0], !itemCollapse[1]])}>
-                    <div class = 'nav-item-header'>
+                  <div class = 'nav-item-mobile' >
+                    <div class = 'nav-item-header' onClick = {() => setItemCollapse([itemCollapse[0], !itemCollapse[1]])}>
                       <p>Company</p>
-                      {arrowDown()}
+                      {itemCollapse[1]? arrowUp() : arrowDown()}
                     </div>
                     <div class = 'nav-item-content-no-icons'
                         style = {{'display' : itemCollapse[1]? 'grid' : 'none'}}>
@@ -128,10 +128,14 @@ function App() {
                     </div>
                   </div>
                   <div class = 'nav-item-mobile'>
-                    <p>Careers</p>
+                    <div class = 'nav-item-header'>
+                      <p>Careers</p>
+                    </div>
                   </div>
                   <div class = 'nav-item-mobile'>
-                    <p>About</p>
+                    <div class = 'nav-item-header'>
+                      <p>About</p>
+                    </div>
                   </div>
                   <div class = 'nav-btn-wrap'>
                     <div class = 'nav-btn nav-btn-login'>
