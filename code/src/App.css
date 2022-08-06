@@ -1,3 +1,17 @@
+.overlay{
+    transition: 300ms all ease;
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    content: '';
+    background-color: rgba(0, 0, 0, 0.535);
+    z-index: 0;
+}
+
+
 
 .nav-wrap{
     padding: 1em;
@@ -36,9 +50,11 @@
     display: none;
     position: absolute;
     left: calc(100vw - clamp(100px, 65vw , 250px));
+    top: 0;
     width: clamp(100px, 65vw , 300px);
     height: 100vh;
     background-color: var(--col-almostwhite);
+    z-index: 1;
 }
 
 .nav-items-wrap{

@@ -1,7 +1,7 @@
 import './App.css'
 import logo from '../src/images/logo.svg'
-import iconMenu from '../src/images/icon-menu.svg'
-import iconCloseMenu from '../src/images/icon-close-menu.svg'
+// import iconMenu from '../src/images/icon-menu.svg'
+// import iconCloseMenu from '../src/images/icon-close-menu.svg'
 import heroImageMobile from '../src/images/image-hero-mobile.png'
 import heroImagedesktop from '../src/images/image-hero-desktop.png'
 import clientDatabiz from '../src/images/client-databiz.svg'
@@ -34,6 +34,28 @@ const arrowUp = () => {
   )
 }
 
+const iconMenu = () => {
+  return(
+    <svg width="32" height="18" xmlns="http://www.w3.org/2000/svg">
+      <g fill="#151515" fill-rule="evenodd">
+        <path d="M0 0h32v2H0zM0 8h32v2H0zM0 16h32v2H0z"/>
+      </g>
+    </svg>
+  )
+}
+
+const iconCloseMenu = () => {
+  return(
+    <svg width="26" height="26" xmlns="http://www.w3.org/2000/svg">
+      <g fill="#151515" fill-rule="evenodd">
+        <path d="m2.393.98 22.628 22.628-1.414 1.414L.979 2.395z"/>
+        <path d="M.98 23.607 23.609.979l1.414 1.414L2.395 25.021z"/>
+      </g>
+    </svg>
+
+  )
+}
+
 
 
 function App() {
@@ -43,7 +65,7 @@ function App() {
   const [itemCollapse, setItemCollapse] = useState(Array(2).fill(false))
 
   return (
-    <div className="App">
+    <div className="App" class = {menuCollapse? 'overlay' : 'none'}>
       <nav>
         <div class = 'nav-wrap'>
           <div class = 'logo'>
@@ -92,8 +114,7 @@ function App() {
               </div>
             </div>
             <div class = 'menu-icon' onClick={() => setMenuCollapse(!menuCollapse)}>
-              {menuCollapse? <img src = {iconCloseMenu} alt = 'icon-close-menu'/>
-                : <img src={iconMenu} alt = 'icon-menu'/>}
+              {menuCollapse? iconCloseMenu() : iconMenu()}
             </div>
             <div class = 'nav-menu-mobile' style = 
                     {{'display': menuCollapse? 'flex' : 'none'}}>
@@ -164,7 +185,7 @@ function App() {
               Make <br class = 'break'/> remote Work
             </div>
             <div class = 'text-subtitle'>
-              <p>Get your team in sync, no matter your location. Streamline processes, create team retuals, and watch productivity soar.</p>
+              <p>Get your team in sync, no matter your location. Streamline processes, create team rituals, and watch productivity soar.</p>
             </div>
             <div class = 'btn-call-to-action-wrap'>
               <div class = 'btn-call-to-action'>
@@ -179,6 +200,7 @@ function App() {
             </div>
           </div>
         </div>
+        <div style={{'paddingBottom' : '50vh'}} />
       </main>
     </div>
   )
